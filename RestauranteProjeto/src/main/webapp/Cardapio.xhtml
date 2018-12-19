@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<ui:composition template="Template.xhtml">
+	<ui:define name="content">
+		<link type="text/css" rel="stylesheet"
+			href="resources/css/Cardapio.css" />
+		<h:outputStylesheet library="css" name="Cardapio.css"></h:outputStylesheet>
+		<div id="cardapio">
+			<div class="center">
+				<div class="header">
+					<div class="bg"></div>
+					<div class="interno">
+						<h2>Cardápio</h2>
+					</div>
+				</div>
+				<div class="body">
+					<ul class="categoria">
+						<li>
+							<ui:repeat value="#{cardapioController.listaCardapio}" var="cardapio" step="1">
+								<h3> 
+									<a>#{cardapio.categoria}</a> 
+								</h3>
+								<ul class="produto">
+									<ui:repeat value="#{itemCardapioController.listaItemCardapio}" var="itemCardapio" step="1">
+										<li>
+											<div class="prod">
+												<div class="nome">
+													<h:outputText value="#{itemCardapio.estoque.nome}" />
+												</div>
+												<div class="preco">
+													<h:outputText value="R$#{itemCardapio.preco}0" converter="javax.faces.Number" />
+												</div>
+											</div>
+										</li>
+									</ui:repeat>
+								</ul>
+							</ui:repeat>
+						</li>
+					</ul>
+					* O cardápio está sujeito a alterações sem aviso prévio. O Web
+					Restaurante não garante o valor ou a disponibilidade dos itens.
+				</div>
+			</div>
+		</div>
+	</ui:define>
+	<div id="rodape">
+		<ui:insert name="rodape">
+			<h:form>
+				<footer class="footer">
+
+					<h:graphicImage value="Imagens/logo1.png" alt="logo" class="logo2" />
+					<ul class="menuRodape">
+						<li><a href="Inicio.xhtml">INICIO</a></li>
+						<li><a href="Cardapio.xhtml">CARDAPIO</a></li>
+						<li><a href="Cardapio.xhtml">CONTATO</a></li>
+						<li><a href="Sobre.xhtml">SOBRE</a></li>
+						<li><a href="Cardapio.xhtml">LOCALIZAÇÃO</a></li>
+					</ul>
+					<p>© COPYRIGHT 2018 WEB RESTAURANTE - TODOS OS DIREITOS
+						RESERVADOS.</p>
+				</footer>
+			</h:form>
+		</ui:insert>
+	</div>
+
+</ui:composition>
+</html>
