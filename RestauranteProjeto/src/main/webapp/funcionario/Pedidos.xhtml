@@ -15,7 +15,8 @@
 			<p:dataTable var="pedido" value="#{pedidoController.listaPedido}" rows="5"
 				paginator="true"
 				paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink}"
-				paginatorPosition="bottom">
+				paginatorPosition="bottom"
+				widgetVar="tabelaPedidos">
 				<f:facet name="header">
             		Pedidos
         		</f:facet>
@@ -26,6 +27,13 @@
 					<h:outputText value="#{pedido.codPedido}"/>
 				</p:column>
 				<p:column headerText="Status" filterBy="#{pedido.status}" sortBy="#{pedido.status}">
+					 <f:facet name="filter">
+		                <p:selectOneButton onchange="PF('tabelaPedidos').filter()" styleClass="custom-filter">
+		                    <f:selectItem itemLabel="Todos" itemValue="" />
+		                    <f:selectItem itemLabel="Concluído" itemValue="Concluído" />
+		                    <f:selectItem itemLabel="Realizado" itemValue="Realizado" />
+		                </p:selectOneButton>
+		            </f:facet>
 					<h:outputText value="#{pedido.status}"/>
 				</p:column>
 				<p:column headerText="Opções">
