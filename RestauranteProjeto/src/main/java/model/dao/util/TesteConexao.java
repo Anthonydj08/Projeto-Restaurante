@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class TesteConexao {
 
 	public static void main(String[] args) {
-		
+
 		try {
 			@SuppressWarnings("unused")
 			Connection con = Conecta.criarConexao();
@@ -15,6 +15,6 @@ public class TesteConexao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 }
