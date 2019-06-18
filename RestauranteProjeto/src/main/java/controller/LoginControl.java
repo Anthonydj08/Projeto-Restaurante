@@ -55,6 +55,7 @@ public class LoginControl {
 			}
 		} else {
 			// con.addMessage(null, new FacesMessage("falha ao entrar."));
+		
 		}
 	}
 	

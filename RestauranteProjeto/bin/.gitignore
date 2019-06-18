@@ -2,3 +2,9 @@
 /.classpath
 /.project
 /target/
+/.gitignore
+/.tern-project
+/Documentos/
+/Users/
+/pom.xml
+/src/

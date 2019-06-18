@@ -31,4 +31,12 @@ public class CardapioDaoImpl extends DAOImpl implements CardapioDao {
 		Cardapio cardapio = query.getSingleResult();
 		return cardapio;
 	}
+	
+	public Cardapio consultarPorNome(String categoria) {
+		TypedQuery<Cardapio> query = manager.createQuery("SELECT c FROM Cardapio c WHERE c.categoria = :categoria",
+				Cardapio.class);
+		query.setParameter("Categoria", categoria);
+		Cardapio cardapio = query.getSingleResult();
+		return cardapio;
+	}
 }
